@@ -2,6 +2,8 @@
 
 This project demonstrates a hands-on approach to working with dbt (Data Build Tool) using the PostgreSQL `dvdrental` sample database. The setup includes creating a data warehouse and modeling data using dbt with a medallion architecture approach.
 
+---
+
 ## Setup Instructions
 
 ### 1. Start Postgres Database
@@ -11,6 +13,8 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
 ### 2. Load Sample Data
 1. Download the sample data: [dvdrental.zip](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 2. Extract the ZIP file into a directory (e.g., `./dvdrental`).
+
+---
 
 ## Using Postgres with Docker
 
@@ -36,6 +40,8 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
     pg_restore -U postgres -d data_warehouse /dvdrental
     ```
 
+---
+
 ## Using Postgres without Docker
 1. **Restore the Sample Database**
     ```sql
@@ -44,6 +50,8 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
     \q
     pg_restore -U postgres -d data_warehouse /path/to/dvdrental
     ```
+
+---
 
 ## DBT Setup
 1. **Create a Virtual Environment**
@@ -93,6 +101,8 @@ Configure the connection:
         dbt debug
     ```
 
+---
+
 ## Data Modeling
 
 ### Medallion Architecture Overview
@@ -105,7 +115,7 @@ Medallion architecture is a data modeling pattern that organizes data into disti
 This architecture ensures data reliability, traceability, and scalability.
 
 ### Create Medallion Architecture Schemas
-    Log in to the `dbt_data_warehouse` database:
+Log in to the `dbt_data_warehouse` database:
     ```bash
     \c data_warehouse
     create schema dbt_dev_raw;
@@ -152,17 +162,26 @@ Create mart models for business questions:
     dbt docs serve
     ```
 
+---
+
 ## Results
 
 ### Data Lineage
 Below is the data lineage generated from the dbt project, showcasing the transformation flow from raw data to the final mart layer:
     ![Data Lineage](dbt-data-lineage.png)
 
+
+---
+
 ## Project Goals
 - Implement medallion architecture with raw, intermediate, and mart layers.
 - Build insights into revenue, top-selling films, and top-performing actors.
 - Utilize dbt for end-to-end data modeling and documentation.
 
+---
+
 ## Resources
 - PostgreSQL Sample Data: [DVDRental](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 - dbt Documentation: [dbt docs](https://docs.getdbt.com/docs/build/documentation)
+
+---

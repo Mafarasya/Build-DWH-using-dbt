@@ -64,35 +64,34 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
 
 4. **Create `profiles.yml`**
 Configure the connection:
-```yaml
-    dbt_data_warehouse:
-    outputs:
-        dev:
-            dbname: dbt_data_warehouse
-            host: localhost
-            pass: <your_db_password>
-            port: 5433
-            schema: dbt_dev
-            threads: 1
-            type: postgres
-            user: postgres
-        prod:
-            dbname: dbt_data_warehouse
-            host: localhost
-            pass: <your_db_password>
-            port: 5433
-            schema: dbt
-            threads: 1
-            type: postgres
-            user: postgres
-    target: dev
-
-```
+    ```yaml
+        dbt_data_warehouse:
+        outputs:
+            dev:
+                dbname: dbt_data_warehouse
+                host: localhost
+                pass: <your_db_password>
+                port: 5433
+                schema: dbt_dev
+                threads: 1
+                type: postgres
+                user: postgres
+            prod:
+                dbname: dbt_data_warehouse
+                host: localhost
+                pass: <your_db_password>
+                port: 5433
+                schema: dbt
+                threads: 1
+                type: postgres
+                user: postgres
+        target: dev
+    ```
 
 5. **Test Connection**
-```bash
-    dbt debug
-```
+    ```bash
+        dbt debug
+    ```
 
 ## Data Modeling
 

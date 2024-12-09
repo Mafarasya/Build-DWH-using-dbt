@@ -63,45 +63,47 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
     ```
 
 4. **Create `profiles.yml`**
-    Configure the connection:
-    ```yaml
+Configure the connection:
+```yaml
     dbt_data_warehouse:
     outputs:
         dev:
-        dbname: dbt_data_warehouse
-        host: localhost
-        pass: <your_password>
-        port: 5433
-        schema: dbt_dev
-        threads: 1
-        type: postgres
-        user: postgres
+            dbname: dbt_data_warehouse
+            host: localhost
+            pass: <your_db_password>
+            port: 5433
+            schema: dbt_dev
+            threads: 1
+            type: postgres
+            user: postgres
         prod:
-        dbname: dbt_data_warehouse
-        host: localhost
-        pass: <your_password>
-        port: 5433
-        schema: dbt
-        threads: 1
-        type: postgres
-        user: postgres
+            dbname: dbt_data_warehouse
+            host: localhost
+            pass: <your_db_password>
+            port: 5433
+            schema: dbt
+            threads: 1
+            type: postgres
+            user: postgres
     target: dev
 
-    ```
+```
 
 5. **Test Connection**
-    ```bash
+```bash
     dbt debug
-    ```
+```
 
 ## Data Modeling
 
 ### Medallion Architecture Overview
-    Medallion architecture is a data modeling pattern that organizes data into distinct layers:
-    - Raw Layer: Ingests and stores raw data as-is from the source.
-    - Intermediate Layer: Processes and transforms raw data into fact and dimension tables for analytics.
-    - Mart Layer: Contains optimized datasets tailored for business intelligence and reporting.
-    This architecture ensures data reliability, traceability, and scalability.
+Medallion architecture is a data modeling pattern that organizes data into distinct layers:
+
+- Raw Layer: Ingests and stores raw data as-is from the source.
+- Intermediate Layer: Processes and transforms raw data into fact and dimension tables for analytics.
+- Mart Layer: Contains optimized datasets tailored for business intelligence and reporting.
+
+This architecture ensures data reliability, traceability, and scalability.
 
 ### Create Medallion Architecture Schemas
     Log in to the `dbt_data_warehouse` database:
@@ -113,11 +115,11 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
     ```
 
 ### Raw Models
-    Define raw models for the following tables:
-    - `payment`, `rental`, `staff`, `customer`, `address`, `inventory`, `film`, `film_actor`, `actor`
+Define raw models for the following tables:
+- `payment`, `rental`, `staff`, `customer`, `address`, `inventory`, `film`, `film_actor`, `actor`
     
-    Define them in sources.yml:
-    ```yaml
+Define them in sources.yml:
+```yaml
     version: 2
     sources:
     - name: public
@@ -127,18 +129,18 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
         - name: payment
     ...
     ...
-    ```
+```
 
 ### Intermediate Models
-    Transform raw data into fact and dimension tables:
-    - Fact: `fact_payment`
-    - Dimensions: `dim_rental`, `dim_staff`, `dim_customer`, `dim_address`, `dim_inventory`, `dim_film`, `dim_film_actor`, `dim_actor`
+Transform raw data into fact and dimension tables:
+- Fact: `fact_payment`
+- Dimensions: `dim_rental`, `dim_staff`, `dim_customer`, `dim_address`, `dim_inventory`, `dim_film`, `dim_film_actor`, `dim_actor`
 
 ### Mart Models / Gold Layer
-    Create mart models for business questions:
-    - Monthly total revenue
-    - Best-selling film
-    - Actor with the most film roles
+Create mart models for business questions:
+- Monthly total revenue
+- Best-selling film
+- Actor with the most film roles
 
 ## dbt Documentation
 
@@ -154,7 +156,7 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
 ## Results
 
 ### Data Lineage
-    Below is the data lineage generated from the dbt project, showcasing the transformation flow from raw data to the final mart layer:
+Below is the data lineage generated from the dbt project, showcasing the transformation flow from raw data to the final mart layer:
     ![Data Lineage](dbt-data-lineage.png)
 
 ## Project Goals
@@ -163,5 +165,5 @@ This project demonstrates a hands-on approach to working with dbt (Data Build To
 - Utilize dbt for end-to-end data modeling and documentation.
 
 ## Resources
-    - PostgreSQL Sample Data: [DVDRental](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
-    - dbt Documentation: [dbt docs](https://docs.getdbt.com/docs/build/documentation)
+- PostgreSQL Sample Data: [DVDRental](https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
+- dbt Documentation: [dbt docs](https://docs.getdbt.com/docs/build/documentation)

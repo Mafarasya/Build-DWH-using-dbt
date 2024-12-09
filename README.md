@@ -128,17 +128,17 @@ Define raw models for the following tables:
 - `payment`, `rental`, `staff`, `customer`, `address`, `inventory`, `film`, `film_actor`, `actor`
     
 Define them in sources.yml:
-```yaml
-    version: 2
-    sources:
-    - name: public
-        database: data_warehouse
-        schema: public
-        tables:
-        - name: payment
-    ...
-    ...
-```
+    ```yaml
+        version: 2
+        sources:
+        - name: public
+            database: data_warehouse
+            schema: public
+            tables:
+            - name: payment
+        ...
+        ...
+    ```
 
 ### Intermediate Models
 Transform raw data into fact and dimension tables:

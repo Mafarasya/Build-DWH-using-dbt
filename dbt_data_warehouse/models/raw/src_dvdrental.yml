@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: dvdrental
+    database: dbt_data_warehouse
+    schema: public
+    tables:
+      - name: payment
+        description: raw payment data
+      - name: rental
+        description: raw rental data
+      - name: staff
+        description: raw staff data
+      - name: customer
+        description: raw customer data
+      - name: address
+        description: raw address data
+      - name: inventory
+        description: raw inventory data
+      - name: film
+        description: raw film data
+      - name: film_actor
+        description: raw film_actor data
+      - name: actor
+        description: raw actor data

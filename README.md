@@ -116,12 +116,12 @@ This architecture ensures data reliability, traceability, and scalability.
 
 ### Create Medallion Architecture Schemas
 Log in to the `dbt_data_warehouse` database:
-    ```bash
+```bash
         \c data_warehouse
         create schema dbt_dev_raw;
         create schema dbt_dev_intermediate;
         create schema dbt_dev_mart;
-    ```
+```
 
 ### Raw Models
 Define raw models for the following tables:
